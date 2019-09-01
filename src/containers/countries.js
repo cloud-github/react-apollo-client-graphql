@@ -16,6 +16,7 @@ const LoadData = styled.div`
   width: 100%;
   align-items: center;
   margin: 0 auto;
+  background: ${props => props.color ? "#c5babe" : "white"};
 `;
 
 const Countries = (props) => {
@@ -24,6 +25,7 @@ const Countries = (props) => {
     console.log("getAllCountries: ", getAllCountries);
     const getCountryInfo = useQuery(VIEW_COUNTRY, { variables: { code: countryCode}});
     if (getAllCountries.loading || getCountryInfo.loading) return <LoadData>loading...</LoadData>;
+    if (getAllCountries.data === undefined) return <LoadData color>Server not responding. Please try again.</LoadData>;
     let listCountries = [];
     if(countryCode){
         return (

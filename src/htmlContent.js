@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Html = ({ content, helmet, assets, state }) => {
+const HtmlContent = ({ content, helmet, assets, state }) => {
   return (
     <html lang="en">
       <head>
@@ -40,4 +40,4 @@ const Html = ({ content, helmet, assets, state }) => {
   );
 };
 
-export default Html;
+export default HtmlContent;
