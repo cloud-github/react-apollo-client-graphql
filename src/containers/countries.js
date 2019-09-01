@@ -21,6 +21,7 @@ const LoadData = styled.div`
 const Countries = (props) => {
     let countryCode = props.match.params.code;
     const getAllCountries = useQuery(GET_COUNTRIES);
+    console.log("getAllCountries: ", getAllCountries);
     const getCountryInfo = useQuery(VIEW_COUNTRY, { variables: { code: countryCode}});
     if (getAllCountries.loading || getCountryInfo.loading) return <LoadData>loading...</LoadData>;
     let listCountries = [];

@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {ApolloClient, HttpLink, InMemoryCache} from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloProvider } from 'react-apollo';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -9,15 +12,20 @@ import * as serviceWorker from './serviceWorker';
 const endPointUrl = 'https://countries.trevorblades.com';
 
 const client = new ApolloClient({
+    ssrForceFetchDelay: 100,
     link: new HttpLink({uri:endPointUrl}),
-    cache:new InMemoryCache()
+    cache:new InMemoryCache().restore(window.__APOLLO_STATE__),
 });
 
-ReactDOM.render(
+const render = module.hot ? ReactDOM.render : ReactDOM.hydrate
+
+render(
     <ApolloProvider client={client}>
-        <App />
+        <Router>
+            <App />
+        </Router>
     </ApolloProvider>,
-    document.getElementById('root')
+    document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

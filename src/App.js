@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom';
@@ -14,17 +13,15 @@ const App = () => {
   return (
       <div className="App">
         <header className="App-header">
-          <Router>
-            <div>
-              <Header/>
-              <Switch>
-                <Route exact path='/' component={Home}/>
-                <Route exact path='/countries' component={Countries}/>
-                <Route exact path='/countries/:code' component={Countries}/>
-                <Route component={NotFound}/>
-              </Switch>
-            </div>
-          </Router>
+          <div>
+            <Header/>
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route exact path='/countries' component={Countries}/>
+              <Route exact path='/countries/:code' component={Countries}/>
+              <Route component={NotFound}/>
+            </Switch>
+          </div>
         </header>
       </div>
   );
