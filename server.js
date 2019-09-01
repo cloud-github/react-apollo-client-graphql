@@ -48,7 +48,7 @@ app.use(async (req, res) => {
   res.end();
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8888;
 
 app.listen(port, () => {
   console.log(`Server listening on ${port} port`);
