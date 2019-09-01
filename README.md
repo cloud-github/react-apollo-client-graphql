@@ -1,4 +1,5 @@
 Firebase demo (without SSR):  [Click here](https://react-apollo-client-graphql.firebaseapp.com).
+
 Heroku demo: (with SSR)  [Click here](https://reactjs-apollo-client-ssr.herokuapp.com/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
