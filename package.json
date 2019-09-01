@@ -25,6 +25,12 @@
   },
   "scripts": {
     "prebuild": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "build": "NODE_ENV=production webpack --progress --mode production --config webpack.config.server.js",
+    "start": "node build/server.js",
+    "start:dev": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm install && npm run build && npm start"
   },
   "eslintConfig": {
     "extends": "react-app"
