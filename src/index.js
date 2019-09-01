@@ -16,7 +16,7 @@ const client = new ApolloClient({
     cache:new InMemoryCache().restore(window.__APOLLO_STATE__),
 });
 
-const render = module.hot ? ReactDOM.render : ReactDOM.hydrate
+const render = module.hot ? ReactDOM.render : ReactDOM.hydrate;
 
 render(
     <ApolloProvider client={client}>
